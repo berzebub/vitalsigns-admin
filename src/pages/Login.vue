@@ -135,7 +135,7 @@ export default {
     },
     loadHospitalNameFromPrefix() {
       let domainName = window.location.hostname;
-      let preFix = domainName.split(".")[0];
+      let preFix = domainName.split(".")[1];
       db.collection("hospital")
         .where("domainPrefix", "==", preFix)
         .get()
@@ -143,7 +143,7 @@ export default {
           if (doc.size) {
             this.currentHospitalName = doc.docs[0].data().name;
           } else {
-            this.currentHospitalName = "Vitalsign Admin";
+            this.currentHospitalName = "Demo Hospital";
           }
         });
     }
